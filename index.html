@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NayePankh Foundation - Dashboard</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Auth Container -->
+    <div id="authContainer" class="auth-container">
+        <div class="auth-box">
+            <div class="auth-header">
+                <h2 class="auth-title">Welcome to NayePankh</h2>
+                <p class="auth-subtitle typing-text">Where small acts of kindness create big changes</p>
+            </div>
+
+            <!-- Login Form -->
+            <form id="loginForm" class="auth-form">
+                <h3>Login</h3>
+                <div class="form-group">
+                    <input type="email" id="loginEmail" required placeholder="Email">
+                    <span class="focus-border"></span>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="loginPassword" required placeholder="Password">
+                    <span class="focus-border"></span>
+                </div>
+                <button type="submit" class="auth-btn">Login</button>
+                <p class="switch-text">Don't have an account? <a href="#" id="showRegister">Register</a></p>
+            </form>
+
+            <!-- Register Form -->
+            <form id="registerForm" class="auth-form hidden">
+                <h3>Create Account</h3>
+                <div class="form-group">
+                    <input type="text" id="registerName" required placeholder="Full Name">
+                    <span class="focus-border"></span>
+                </div>
+                <div class="form-group">
+                    <input type="email" id="registerEmail" required placeholder="Email">
+                    <span class="focus-border"></span>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="registerPassword" required placeholder="Password">
+                    <span class="focus-border"></span>
+                </div>
+                <div class="form-group">
+                    <input type="password" id="confirmPassword" required placeholder="Confirm Password">
+                    <span class="focus-border"></span>
+                </div>
+                <button type="submit" class="auth-btn">Register</button>
+                <p class="switch-text">Already have an account? <a href="#" id="showLogin">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <!-- Main App Container (Previous content) -->
+    <div id="appContainer" class="container hidden">
+        <!-- Previous content remains the same -->
+        <!-- Sidebar -->
+
+        <div class="sidebar">
+            <div class="logo">
+                <h2>NayePankh</h2>
+            </div>
+            <nav>
+                <a href="#" class="active" onclick="showDashboard()">Dashboard</a>
+                <a href="#" onclick="showTransactions()">Transactions</a>
+                <a href="#" onclick="logout()" class="logout-btn">Logout</a>
+            </nav>
+        </div>
+
+        <body>
+
+
+            <!-- Main Content -->
+            <div class="main-content">
+                <!-- Dashboard -->
+                <div id="dashboard">
+                    <h1>Welcome, <span id="userName">User</span></h1>
+
+                    <div class="cards-container">
+                        <div class="card">
+                            <h3>Goal Achieved</h3>
+                            <p class="amount">$<span id="totalDonations">0</span></p>
+                        </div>
+
+                        <div class="card">
+                            <h3>Your Referral Code</h3>
+                            <p id="referralCode" class="code">REF123</p>
+                        </div>
+                    </div>
+
+
+                    <div class="donation-options">
+                        <h2>Make a Donation</h2>
+                        <p class="donation-intro">Every contribution makes a difference in someone's life. Choose how you'd like to help:</p>
+
+                        <div class="preset-amounts">
+                            <button onclick="initiateDonation(20)" class="donation-btn">
+                                <div class="amount-header">$20</div>
+                                <div class="donation-content">
+                                    <h4 class="donation-title">Essential Food Package</h4>
+                                    <span class="donation-description">Feed a family for a week</span>
+                                    <ul class="donation-details">
+                                        <li>Provides basic groceries</li>
+                                        <li>Includes rice, lentils, and vegetables</li>
+                                        <li>Supports local food security</li>
+                                    </ul>
+                                </div>
+                            </button>
+
+                            <button onclick="initiateDonation(50)" class="donation-btn">
+                                <div class="amount-header">$50</div>
+                                <div class="donation-content">
+                                    <h4 class="donation-title">Education Starter Kit</h4>
+                                    <span class="donation-description">Support 5 children's education</span>
+                                    <ul class="donation-details">
+                                        <li>Complete school supplies set</li>
+                                        <li>Textbooks and workbooks</li>
+                                        <li>School bag and stationery</li>
+                                    </ul>
+                                </div>
+                            </button>
+
+                            <button onclick="initiateDonation(100)" class="donation-btn">
+                                <div class="amount-header">$100</div>
+                                <div class="donation-content">
+                                    <h4 class="donation-title">Healthcare Support</h4>
+                                    <span class="donation-description">Monthly medical assistance</span>
+                                    <ul class="donation-details">
+                                        <li>Basic medical supplies</li>
+                                        <li>Emergency medical fund</li>
+                                        <li>Health check-up support</li>
+                                    </ul>
+                                </div>
+                            </button>
+
+                            <button onclick="initiateDonation(200)" class="donation-btn">
+                                <div class="amount-header">$200</div>
+                                <div class="donation-content">
+                                    <h4 class="donation-title">Child Education Sponsorship</h4>
+                                    <span class="donation-description">Transform a child's future</span>
+                                    <ul class="donation-details">
+                                        <li>Full semester school fees</li>
+                                        <li>Educational materials</li>
+                                        <li>Uniform and transportation</li>
+                                    </ul>
+                                </div>
+                            </button>
+
+                            <div class="custom-amount">
+                                <input type="number" id="customAmount" placeholder="Enter your preferred amount" min="1">
+                                <button onclick="initiateCustomDonation()" class="donation-btn">
+                                    <div class="donation-content">
+                                        <h4 class="donation-title">Custom Donation</h4>
+                                        <span class="donation-description">Choose your impact level</span>
+                                        <p class="custom-description">Every donation, regardless of size, helps us create positive change in our community.</p>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="sharing-options">
+                            <button onclick="copyDonationLink()" class="btn primary">Copy Donation Link</button>
+                            <button onclick="shareWhatsApp()" class="btn whatsapp">Share on WhatsApp</button>
+                        </div>
+                    </div>
+
+                    <!-- Transactions -->
+                    <div id="transactions">
+                        <h2>Transactions</h2>
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Donor</th>
+                                        <th>Amount</th>
+                                    </tr>
+                                </thead>
+                                <table id="transactionsList"></table>
+                                <div id="totalDonations"></div>
+                                Copy
+                                <div id="transactions" class="hidden">
+                                    <h2>Your Transactions</h2>
+                                    <div id="transactionsList"></div>
+                                </div>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <script src="script.js"></script>
+
+        </body>
+
+</html>
