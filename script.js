@@ -208,7 +208,7 @@ async function updateTransactions() {
 // Copy donation link
 function copyDonationLink() {
     const user = { referralCode: "" }; // Replace with actual user data
-    const donationLink = `https://donation-dashboard-ashen.vercel.app${user.referralCode}`;
+    const donationLink = `https://donation-dashboard-kohl.vercel.app/${user.referralCode}`;
 
     navigator.clipboard.writeText(donationLink)
         .then(() => {
@@ -223,7 +223,7 @@ function copyDonationLink() {
 // Share on WhatsApp
 function shareWhatsApp() {
     const user = { referralCode: "" }; // Replace with actual user data
-    const donationLink = `https://donation-dashboard-ashen.vercel.app${user.referralCode}`;
+    const donationLink = `https://donation-dashboard-kohl.vercel.app/${user.referralCode}`;
     const message = encodeURIComponent(
         `Hi, I am raising funds for NayePankh Foundation. Please support me by donating through this link: ${donationLink} and make a difference!`
     );
