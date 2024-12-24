@@ -1,1 +1,1 @@
-# Donation-Dashboard
+The Donation Dashboard serves as a centralized platform designed to streamline and enhance the process of contributing to charitable causes. It offers a user-friendly interface that allows donors to view and manage their donations efficiently. 
